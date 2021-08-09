@@ -14,7 +14,7 @@ function App() {
 
   useEffect(() => {
     setUnidad(Math.round(total * tipo * 100) / 100);
-    setDecena(Math.round((total * tipo * 100) / 45914.2) / 100);
+    setDecena((total * tipo) / 45914.2);
     setCentena(Math.round((total * tipo * 100) / 0.15) / 100);
     setUmil(Math.round((total * tipo * 100) / 1.17) / 100);
     setDmil(Math.round((total * tipo * 100) / 1.38) / 100);
