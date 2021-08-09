@@ -1,6 +1,5 @@
-import {useState, useEffect} from 'react';
-import './App.css';
-
+import { useState, useEffect } from "react";
+import "./App.css";
 
 function App() {
   const [unidad, setUnidad] = useState(0);
@@ -14,44 +13,42 @@ function App() {
   const [total, setTotal] = useState(0);
 
   useEffect(() => {
-    setUnidad((total * tipo) / 1);
-    setDecena((total * tipo) / 10);
-    setCentena((total * tipo) / 100);
-    setUmil((total * tipo) / 1000);
-    setDmil((total * tipo) / 10000);
-    setCmil((total * tipo) / 100000);
+    setUnidad(total * tipo * 1);
+    setDecena((total * tipo) / 45914.2);
+    setCentena(total * tipo * 6.49);
+    setUmil(total * tipo * 0.85);
+    setDmil(total * tipo * 0.72);
+    setCmil(total * tipo * 20);
   }, [total, tipo]);
 
-
-  const handleTotalChange = e => {
+  const handleTotalChange = (e) => {
     if (!isNaN(e.target.value)) {
       setTotal(e.target.value);
     }
   };
 
-
   return (
     <div className="App">
-      <h1>Convertidor de unidades</h1>
+      <h1>Convertidor de divisas</h1>
 
-      <p>Unidad: {unidad}</p>
-      <p>Decena: {decena}</p>
-      <p>Centena: {centena}</p>
-      <p>Unidad Mil: {umil}</p>
-      <p>Decena Mil: {dmil}</p>
-      <p>Centena Mil: {cmil}</p>
+      <p>Dólar Americano: {unidad}</p>
+      <p>Bitcoin: {decena}</p>
+      <p>Yuan: {centena}</p>
+      <p>Euro: {umil}</p>
+      <p>Libras Esterlinas: {dmil}</p>
+      <p>Peso Mexicano: {cmil}</p>
 
       <hr />
 
       <h3>{total}</h3>
 
-      <select onChange={event => setTipo(event.target.value)} value={tipo}>
-        <option value={1}>Unidad</option>
-        <option value={10}>Decena</option>
-        <option value={100}>Centena</option>
-        <option value={1000}>Unidad Mil</option>
-        <option value={10000}>Decena Mil</option>
-        <option value={100000}>Centena Mil</option>
+      <select onChange={(event) => setTipo(event.target.value)} value={tipo}>
+        <option value={1}>Dólar Americano</option>
+        <option value={45914.2}>Bitcoin</option>
+        <option value={0.15}>Yuan</option>
+        <option value={1.17}>Euro</option>
+        <option value={1.38}>Libras Esterlinas</option>
+        <option value={0.05}>Peso mexicano</option>
       </select>
       <input onChange={handleTotalChange} value={total} />
     </div>
