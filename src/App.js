@@ -15,9 +15,9 @@ function App() {
   useEffect(() => {
     setUnidad(total * tipo * 1);
     setDecena((total * tipo) / 45914.2);
-    setCentena(total * tipo * 6.49);
-    setUmil(total * tipo * 0.85);
-    setDmil(total * tipo * 0.72);
+    setCentena((total * tipo) / 0.15);
+    setUmil((total * tipo) / 1.17);
+    setDmil((total * tipo) / 1.38);
     setCmil(total * tipo * 20);
   }, [total, tipo]);
 
