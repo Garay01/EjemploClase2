@@ -13,12 +13,12 @@ function App() {
   const [total, setTotal] = useState(0);
 
   useEffect(() => {
-    setUnidad(total * tipo * 1);
-    setDecena((total * tipo) / 45914.2);
-    setCentena((total * tipo) / 0.15);
-    setUmil((total * tipo) / 1.17);
-    setDmil((total * tipo) / 1.38);
-    setCmil(total * tipo * 20);
+    setUnidad(Math.round(total * tipo * 100) / 100);
+    setDecena(Math.round((total * tipo * 100) / 45914.2) / 100);
+    setCentena(Math.round((total * tipo * 100) / 0.15) / 100);
+    setUmil(Math.round((total * tipo * 100) / 1.17) / 100);
+    setDmil(Math.round((total * tipo * 100) / 1.38) / 100);
+    setCmil(Math.round(total * tipo * 2000) / 100);
   }, [total, tipo]);
 
   const handleTotalChange = (e) => {
